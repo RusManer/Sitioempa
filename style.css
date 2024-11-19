@@ -311,26 +311,37 @@ body.dark .home .text{
 
 
 .footer-text {
-    position: fixed; /* Siempre en la parte inferior de la pantalla */
+    position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.25); /* Fondo semitransparente */
-    color: #ffffff; /* Texto blanco */
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
+    color: #ffffff; /* Color de texto blanco */
     padding: 10px;
-    font-size: 14px; /* Texto más pequeño en móviles */
-    z-index: 10; /* Encima del banner */
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10; /* Asegura que esté encima de las imágenes */
 }
 
+
 /* Contenedor del banner */
-#banner-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100vw;
-    height: calc(100vh - 60px); /* Deja espacio para el pie de página */
-    position: relative;
+
+/* Para pantallas móviles */
+@media (max-width: 768px) {
+    #banner-contenedor {
+        height: calc(100vh - 80px); /* Ajusta el banner dejando espacio para el pie de página */
+    }
+
+    .banner-imagen {
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        height: auto; /* Mantiene la proporción de la imagen */
+        object-fit: contain; /* Muestra la imagen completa sin recortes */
+    }
+
+    .footer-text {
+        font-size: 12px; /* Reduce el tamaño del texto para móviles */
+        padding: 8px;
+    }
 }
 .banner-imagen {
     width: 100vw;
@@ -341,19 +352,6 @@ body.dark .home .text{
     left: 0;
     opacity: 0;
     transition: opacity 2s ease-in-out;
-}
-
-
-/* Para pantallas móviles */
-@media (max-width: 768px) {
-    #banner-contenedor {
-        height: calc(100vh - 80px); /* Ajusta el espacio del banner */
-    }
-
-    .footer-text {
-        font-size: 12px; /* Reduce el tamaño del texto en móviles */
-        padding: 8px;
-    }
 }
 
 
