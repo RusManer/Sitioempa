@@ -29,18 +29,7 @@ function loadBannerImages() {
     images = bannerImages[mode].map(src => {
         const img = document.createElement('img');
         img.src = src;
-        img.classList.add('banner-imagen');
-        if (isMobile()) {
-            // Para móviles: Ajusta las imágenes para que se adapten verticalmente
-            img.style.width = 'auto';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-        } else {
-            // Para PC: Mantén el diseño original
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-        }
+        img.classList.add('banner-imagen'); // Aplica estilos desde el CSS
         bannerContenedor.appendChild(img);
         return img;
     });
@@ -50,7 +39,6 @@ function loadBannerImages() {
         images[0].classList.add('active'); // Activa la primera imagen
     }
 }
-
 // Inicia el carrusel
 function startCarousel() {
     stopCarousel(); // Detenemos cualquier carrusel activo antes de iniciar uno nuevo
