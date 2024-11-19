@@ -323,8 +323,21 @@ body.dark .home .text{
     z-index: 10; /* Asegura que esté encima de las imágenes */
 }
 
+#banner-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh; /* Altura completa de la pantalla */
+    position: relative;
+}
 
-
+@media (max-width: 768px) {
+    #banner-contenedor {
+        height: 50vh; /* Reduce la altura del banner para móviles */
+    }
+}
 
 
 #centrado {
@@ -344,6 +357,8 @@ body.dark .home .text{
     position: relative;
 }
 
+
+
 .banner-imagen {
     width: 100vw;
     height: 100vh;
@@ -354,6 +369,9 @@ body.dark .home .text{
     opacity: 0;
     transition: opacity 2s ease-in-out;
 }
+
+
+
 
 .banner-imagen.active {
     opacity: 1;
