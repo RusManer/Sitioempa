@@ -318,9 +318,8 @@ body.dark .home .text{
     background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
     color: #ffffff; /* Color de texto blanco */
     padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    z-index: 10; /* Asegura que esté encima de las imágenes */
+    font-size: 14px; /* Tamaño de texto más pequeño para móviles */
+    z-index: 10;
 }
 
 #banner-contenedor {
@@ -329,15 +328,30 @@ body.dark .home .text{
     align-items: center;
     overflow: hidden;
     width: 100vw;
-    height: 100vh; /* Altura completa de la pantalla */
+    height: calc(100vh - 60px); /* Resta el espacio del pie de página */
     position: relative;
 }
 
+.banner-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Para pantallas móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        height: 50vh; /* Reduce la altura del banner para móviles */
+        height: calc(100vh - 80px); /* Ajusta para que el pie de página se mantenga visible */
+    }
+
+    .banner-imagen {
+        object-fit: contain; /* Asegura que la imagen completa se vea en vertical */
     }
 }
+
 
 
 #centrado {
