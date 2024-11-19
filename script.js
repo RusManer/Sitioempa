@@ -10,7 +10,7 @@ let carouselInterval;
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
     pc: { // Imágenes para PC
-        light: ['img/blanco1', 'img/blanco2.webp', 'img/blanco3.webp'],
+        light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'],
         dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']
     },
     mobile: { // Imágenes para móviles
