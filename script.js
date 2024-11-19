@@ -1,17 +1,19 @@
 const body = document.querySelector('body');
 const bannerContenedor = document.getElementById('banner-contenedor');
-const modeSwitch = document.querySelector(".toggle-switch");
-const sidebar = document.querySelector('.sidebar');
-const toggleButton = document.querySelector('.toggle');
-
 let currentIndex = 0;
 let images = [];
 let carouselInterval;
 
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
-    light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'], // Modo claro
-    dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']  // Modo oscuro
+    pc: { // Imágenes para PC
+        light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'],
+        dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']
+    },
+    mobile: { // Imágenes para móviles
+        light: ['img/mobil1.webp', 'img/mobil2.webp', 'img/mobil3.webp'],
+        dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobil3.webp']
+    }
 };
 
 // ==================== DETECTAR DISPOSITIVO ====================
@@ -23,13 +25,14 @@ function isMobile() {
 // Carga las imágenes dependiendo del dispositivo (PC o móvil) y modo (claro/oscuro)
 function loadBannerImages() {
     const mode = body.classList.contains("dark") ? 'dark' : 'light'; // Detecta el modo actual
+    const deviceType = isMobile() ? 'mobile' : 'pc'; // Selecciona el conjunto de imágenes según el dispositivo
     bannerContenedor.innerHTML = ''; // Limpia el contenedor antes de agregar imágenes
 
-    // Carga las imágenes correspondientes al modo
-    images = bannerImages[mode].map(src => {
+    // Carga las imágenes correspondientes al dispositivo y modo
+    images = bannerImages[deviceType][mode].map(src => {
         const img = document.createElement('img');
         img.src = src;
-        img.classList.add('banner-imagen'); // Aplica estilos desde el CSS
+        img.classList.add('banner-imagen');
         bannerContenedor.appendChild(img);
         return img;
     });
@@ -39,6 +42,7 @@ function loadBannerImages() {
         images[0].classList.add('active'); // Activa la primera imagen
     }
 }
+
 // Inicia el carrusel
 function startCarousel() {
     stopCarousel(); // Detenemos cualquier carrusel activo antes de iniciar uno nuevo
@@ -63,14 +67,6 @@ function toggleDarkMode() {
 }
 
 // ==================== EVENTOS ====================
-// Cambiar entre modo claro y oscuro con Control + M
-document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === 'm') {
-        event.preventDefault();
-        toggleDarkMode();
-    }
-});
-
 // Detectar redimensionamiento de pantalla
 window.addEventListener('resize', () => {
     loadBannerImages(); // Recarga las imágenes adaptadas al nuevo tamaño
@@ -90,11 +86,14 @@ window.addEventListener('online', function() {
 });
 
 // Evento para el botón de la barra lateral
+const toggleButton = document.querySelector('.toggle');
 toggleButton.addEventListener("click", () => {
+    const sidebar = document.querySelector('.sidebar');
     sidebar.classList.toggle("close");
 });
 
 // Cambiar entre modo claro y oscuro al hacer clic en el interruptor
+const modeSwitch = document.querySelector(".toggle-switch");
 modeSwitch.addEventListener("click", () => {
     toggleDarkMode(); // Llama a la función que cambia los modos
 });
