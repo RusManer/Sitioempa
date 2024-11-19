@@ -1,5 +1,8 @@
 const body = document.querySelector('body');
 const bannerContenedor = document.getElementById('banner-contenedor');
+const modeSwitch = document.querySelector(".toggle-switch");
+const toggleButton = document.querySelector('.toggle');
+const pedidosLink = document.getElementById('pedidosLink');
 let currentIndex = 0;
 let images = [];
 let carouselInterval;
@@ -7,12 +10,12 @@ let carouselInterval;
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
     pc: { // Imágenes para PC
-        light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'],
+        light: ['img/blanco1', 'img/blanco2.webp', 'img/blanco3.webp'],
         dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']
     },
     mobile: { // Imágenes para móviles
         light: ['img/mobil1.webp', 'img/mobil2.webp', 'img/mobil3.webp'],
-        dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobil3.webp']
+        dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobile3.webp']
     }
 };
 
@@ -66,32 +69,21 @@ function toggleDarkMode() {
     startCarousel();     // Reinicia el carrusel
 }
 
-// ==================== EVENTOS ====================
-// Detectar redimensionamiento de pantalla
-window.addEventListener('resize', () => {
-    loadBannerImages(); // Recarga las imágenes adaptadas al nuevo tamaño
-    startCarousel();    // Reinicia el carrusel
-});
-
-// Detectar pérdida de conexión a Internet y mostrar error 404
-window.addEventListener('offline', function() {
-    // Redirigir a la página 404 cuando se pierde la conexión
+// ==================== DETECCIÓN DE ERROR 404 ====================
+// Detectar pérdida de conexión a Internet y redirigir a la página de error
+window.addEventListener('offline', function () {
+    // Redirigir a una página personalizada de error 404
     window.location.href = '404.html';
 });
 
-// Detectar reconexión a Internet y redirigir a la interfaz de pedidos sin recargar
-window.addEventListener('online', function() {
-    // Redirigir a la interfaz de pedidos al reconectarse
-    window.location.href = 'index.html'; // Cambia esta ruta a la URL que deseas en caso de reconexión
+// Detectar reconexión a Internet y redirigir a la página principal
+window.addEventListener('online', function () {
+    // Redirigir al inicio o a una página específica
+    window.location.href = 'index.html';
 });
 
-// Evento para el botón de la barra lateral
-const toggleButton = document.querySelector('.toggle');
-toggleButton.addEventListener("click", () => {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle("close");
-});
-// Evento para cambiar modo con Control + M
+// ==================== COMANDOS ====================
+// Comando para alternar modo claro/oscuro con Ctrl + M
 document.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'm') {
         event.preventDefault();
@@ -99,38 +91,35 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Evento para redirigir a la página de pedidos con Control + P
+// Comando para redirigir a la página de pedidos con Ctrl + P
 document.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'p') {
         event.preventDefault();
-        window.location.href = pedidosLink.href;
+        if (pedidosLink) {
+            window.location.href = pedidosLink.href;
+        }
     }
 });
+
+// ==================== EVENTOS ====================
+// Detectar redimensionamiento de pantalla
+window.addEventListener('resize', () => {
+    loadBannerImages(); // Recarga las imágenes adaptadas al nuevo tamaño
+    startCarousel();    // Reinicia el carrusel
+});
+
+// Manejo de barra lateral
+toggleButton.addEventListener("click", () => {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle("close");
+});
+
 // Cambiar entre modo claro y oscuro al hacer clic en el interruptor
-const modeSwitch = document.querySelector(".toggle-switch");
 modeSwitch.addEventListener("click", () => {
     toggleDarkMode(); // Llama a la función que cambia los modos
 });
 
-// Registrar el Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js').then(() => {
-        console.log('Service Worker registrado con éxito.');
-    }).catch((error) => {
-        console.log('Error al registrar el Service Worker:', error);
-    });
-}
-// Detectar pérdida de conexión a Internet y mostrar error 404
-window.addEventListener('offline', function() {
-    // Redirigir a la página 404 cuando se pierde la conexión
-    window.location.href = '404.html';
-});
-// Detectar reconexión a Internet y redirigir a la interfaz de pedidos sin recargar
-window.addEventListener('online', function() {
-    // Redirigir a la interfaz de pedidos al reconectarse
-    window.location.href = 'index.html'; // Cambia esta ruta a la URL que deseas en caso de reconexión
-});
-
+// ==================== REGISTRO DE SERVICE WORKER ====================
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js').then(() => {
         console.log('Service Worker registrado con éxito.');
