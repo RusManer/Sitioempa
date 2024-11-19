@@ -314,21 +314,43 @@ body.dark .home .text{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: calc(100vh - 50px); /* Altura total menos el pie de página */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
     overflow: hidden;
     position: relative;
 }
 
 .banner-imagen {
-    width: 100%; /* Asegura que ocupa el ancho completo */
-    height: auto; /* Mantiene la proporción en computadoras */
-    object-fit: cover; /* Llenado uniforme sin deformaciones */
+    width: 100vw; /* Ocupa todo el ancho */
+    height: 100vh; /* Ocupa todo el alto */
+    object-fit: cover; /* Llena el contenedor sin deformarse */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
-/* Ajuste específico para móviles */
+.banner-imagen.active {
+    opacity: 1; /* Imagen activa */
+}
+
+/* Pie de página (Restaurado) */
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10; /* Asegura que esté encima de las imágenes */
+}
+
 @media (max-width: 768px) {
     #banner-contenedor {
-        height: calc(100vh - 50px); /* Deja espacio para el pie de página */
+        height: calc(100vh - 50px); /* Ajusta el banner dejando espacio para el pie de página */
     }
 
     .banner-imagen {
@@ -336,18 +358,14 @@ body.dark .home .text{
         height: 100%; /* Llena el alto completo */
         object-fit: contain; /* Muestra la imagen completa sin cortes */
     }
-}
 
-.footer-text {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-    color: white;
-    padding: 10px;
-    font-size: 12px; /* Ajustado para móviles */
-    z-index: 10; /* Siempre visible */
+    .footer-text {
+        position: fixed; /* Asegura que el pie de página esté visible en móviles */
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo más visible */
+        font-size: 12px; /* Ajusta el tamaño del texto */
+    }
 }
 
  #comida1{
