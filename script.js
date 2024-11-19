@@ -115,5 +115,5 @@ window.addEventListener('resize', () => {
 });
 
 // Inicializa el banner y el carrusel al cargar la página
-loadBannerImages(); // Carga las imágenes iniciales del banner
+loadBannerImages();
 startCarousel();    // Inicia el carrusel del banner
