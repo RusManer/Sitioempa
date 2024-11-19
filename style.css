@@ -324,36 +324,6 @@ body.dark .home .text{
 }
 
 
-/* Contenedor del banner */
-
-/* Para pantallas móviles */
-@media (max-width: 768px) {
-    #banner-contenedor {
-        height: calc(100vh - 80px); /* Ajusta el banner dejando espacio para el pie de página */
-    }
-
-    .banner-imagen {
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        height: auto; /* Mantiene la proporción de la imagen */
-        object-fit: contain; /* Muestra la imagen completa sin recortes */
-    }
-
-    .footer-text {
-        font-size: 12px; /* Reduce el tamaño del texto para móviles */
-        padding: 8px;
-    }
-}
-.banner-imagen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-}
-
 
 #centrado {
     display: flex;
@@ -372,14 +342,53 @@ body.dark .home .text{
     position: relative;
 }
 
-
-
-
-
+.banner-imagen {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
 
 .banner-imagen.active {
     opacity: 1;
 }
+
+
+/* Ajuste específico para pantallas móviles */
+@media (max-width: 768px) {
+    #banner-contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh; /* El banner ocupa toda la pantalla */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .banner-imagen {
+        width: auto; /* Ajusta el ancho proporcionalmente */
+        height: 100%; /* Asegura que la imagen ocupe todo el alto */
+        object-fit: contain; /* La imagen se muestra completa sin cortes */
+    }
+
+    .footer-text {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+        color: white;
+        padding: 10px;
+        font-size: 12px; /* Texto ajustado para móviles */
+        z-index: 10; /* Siempre encima del banner */
+    }
+}
+
 
  #comida1{
         float: right;
@@ -397,4 +406,3 @@ body.dark .home .text{
 .underline {
     text-decoration: underline;
 }
-
