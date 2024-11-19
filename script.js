@@ -10,12 +10,17 @@ let carouselInterval;
 
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
-    light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'], // Imágenes para modo claro
-    dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']  // Imágenes para modo oscuro
+    light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'], // Modo claro
+    dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']  // Modo oscuro
 };
 
+// ==================== DETECTAR DISPOSITIVO ====================
+function isMobile() {
+    return window.innerWidth <= 768; // Detecta si el ancho de la pantalla es de un dispositivo móvil
+}
+
 // ==================== FUNCIONES PARA EL BANNER ====================
-// Carga las imágenes según el modo actual (claro u oscuro)
+// Carga las imágenes dependiendo del dispositivo (PC o móvil) y modo (claro/oscuro)
 function loadBannerImages() {
     const mode = body.classList.contains("dark") ? 'dark' : 'light'; // Detecta el modo actual
     bannerContenedor.innerHTML = ''; // Limpia el contenedor antes de agregar imágenes
@@ -25,6 +30,17 @@ function loadBannerImages() {
         const img = document.createElement('img');
         img.src = src;
         img.classList.add('banner-imagen');
+        if (isMobile()) {
+            // Para móviles: Ajusta las imágenes para que se adapten verticalmente
+            img.style.width = 'auto';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+        } else {
+            // Para PC: Mantén el diseño original
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+        }
         bannerContenedor.appendChild(img);
         return img;
     });
@@ -54,11 +70,12 @@ function stopCarousel() {
 // Cambiar entre modo claro y oscuro
 function toggleDarkMode() {
     body.classList.toggle("dark");
-    loadBannerImages();  // Vuelve a cargar las imágenes del banner al cambiar de modo
+    loadBannerImages();  // Recarga las imágenes del banner al cambiar de modo
     startCarousel();     // Reinicia el carrusel
 }
 
-// Evento para cambiar modo con Control + M
+// ==================== EVENTOS ====================
+// Cambiar entre modo claro y oscuro con Control + M
 document.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'm') {
         event.preventDefault();
@@ -66,24 +83,10 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Evento para redirigir a la página de pedidos con Control + P
-document.addEventListener('keydown', (event) => {
-    if (event.ctrlKey && event.key === 'p') {
-        event.preventDefault();
-        const pedidosLink = document.getElementById('pedidosLink');
-        if (pedidosLink) {
-            window.location.href = pedidosLink.href;
-        }
-    }
-});
-
-// Evento para el botón de la barra lateral
-toggleButton.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-});
-
-modeSwitch.addEventListener("click", () => {
-    toggleDarkMode(); // Llama a la función que cambia los modos
+// Detectar redimensionamiento de pantalla
+window.addEventListener('resize', () => {
+    loadBannerImages(); // Recarga las imágenes adaptadas al nuevo tamaño
+    startCarousel();    // Reinicia el carrusel
 });
 
 // Detectar pérdida de conexión a Internet y mostrar error 404
@@ -98,6 +101,16 @@ window.addEventListener('online', function() {
     window.location.href = 'index.html'; // Cambia esta ruta a la URL que deseas en caso de reconexión
 });
 
+// Evento para el botón de la barra lateral
+toggleButton.addEventListener("click", () => {
+    sidebar.classList.toggle("close");
+});
+
+// Cambiar entre modo claro y oscuro al hacer clic en el interruptor
+modeSwitch.addEventListener("click", () => {
+    toggleDarkMode(); // Llama a la función que cambia los modos
+});
+
 // Registrar el Service Worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js').then(() => {
@@ -108,12 +121,6 @@ if ('serviceWorker' in navigator) {
 }
 
 // ==================== INICIALIZACIÓN ====================
-// Recarga las imágenes si cambia el tamaño de la pantalla
-window.addEventListener('resize', () => {
-    loadBannerImages(); // Recarga las imágenes adaptadas al nuevo tamaño
-    startCarousel();    // Reinicia el carrusel
-});
-
 // Inicializa el banner y el carrusel al cargar la página
-loadBannerImages();
+loadBannerImages(); // Carga las imágenes iniciales del banner
 startCarousel();    // Inicia el carrusel del banner
