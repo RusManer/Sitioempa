@@ -311,47 +311,50 @@ body.dark .home .text{
 
 
 .footer-text {
-    position: absolute;
+    position: fixed; /* Siempre en la parte inferior de la pantalla */
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
-    color: #ffffff; /* Color de texto blanco */
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semitransparente */
+    color: #ffffff; /* Texto blanco */
     padding: 10px;
-    font-size: 14px; /* Tamaño de texto más pequeño para móviles */
-    z-index: 10;
+    font-size: 14px; /* Texto más pequeño en móviles */
+    z-index: 10; /* Encima del banner */
 }
 
+/* Contenedor del banner */
 #banner-contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     width: 100vw;
-    height: calc(100vh - 60px); /* Resta el espacio del pie de página */
+    height: calc(100vh - 60px); /* Deja espacio para el pie de página */
     position: relative;
 }
-
 .banner-imagen {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
+
 
 /* Para pantallas móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        height: calc(100vh - 80px); /* Ajusta para que el pie de página se mantenga visible */
+        height: calc(100vh - 80px); /* Ajusta el espacio del banner */
     }
 
-    .banner-imagen {
-        object-fit: contain; /* Asegura que la imagen completa se vea en vertical */
+    .footer-text {
+        font-size: 12px; /* Reduce el tamaño del texto en móviles */
+        padding: 8px;
     }
 }
-
 
 
 #centrado {
@@ -372,17 +375,6 @@ body.dark .home .text{
 }
 
 
-
-.banner-imagen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-}
 
 
 
