@@ -332,10 +332,29 @@ body.dark .home .text{
     height: 100vh; /* Altura completa de la pantalla */
     position: relative;
 }
+.banner-imagen {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover; /* Asegura que la imagen se adapte sin deformarse */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
 
 @media (max-width: 768px) {
     #banner-contenedor {
-        height: 50vh; /* Reduce la altura del banner para móviles */
+        margin-left: 0; /* Elimina el margen en móviles */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        height: 50vh; /* Ajusta la altura del banner */
+    }
+
+    footer {
+        margin-left: 0; /* Elimina el margen en móviles */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+        font-size: 12px; /* Ajusta el texto para pantallas pequeñas */
     }
 }
 
