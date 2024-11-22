@@ -308,62 +308,73 @@ body.dark .home .text{
     color: var(--text-color);
 }
 
-/* Ajustes generales para el banner */
-#banner-contenedor {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    height: auto; /* Ajusta automáticamente la altura */
-    overflow: hidden; /* Evita que los elementos desborden */
-    display: flex; /* Asegura la alineación de los elementos internos */
-    justify-content: center; /* Centra las imágenes horizontalmente */
-    align-items: center; /* Centra las imágenes verticalmente */
-}
 
-#centrado {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end; /* Asegura que el pie de página esté al final */
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    overflow: hidden; /* Evita desbordamientos */
-}
 
-#banner-contenedor {
-    position: relative;
+.footer-text {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10; /* Asegura que esté encima de las imágenes */
+}
+
+#banner-contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    width: 100vw;
+    height: 100vh; /* Altura completa de la pantalla */
+    position: relative;
 }
+
+@media (max-width: 768px) {
+    #banner-contenedor {
+        height: 50vh; /* Reduce la altura del banner para móviles */
+    }
+}
+
+
+#centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+
 
 .banner-imagen {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
-}
-
-footer.footer-text {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     position: absolute;
-    bottom: 20px; /* Ajusta la distancia desde la parte inferior del banner */
-    width: 100%;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente opcional */
-    color: #fff; /* Texto blanco para contraste */
-    padding: 10px 0;
-    font-size: 14px; /* Tamaño de fuente optimizado para móviles */
-    z-index: 10; /* Asegura que esté encima de la imagen */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-    #centrado {
-        height: calc(100vh - 56px); /* Ajusta para dejar espacio a la barra lateral */
-    }
-    footer.footer-text {
-        bottom: 10px; /* Reduce la separación en móviles */
-        font-size: 12px; /* Ajusta el tamaño de fuente para pantallas pequeñas */
-    }
+
+
+
+.banner-imagen.active {
+    opacity: 1;
 }
 
  #comida1{
@@ -382,3 +393,4 @@ footer.footer-text {
 .underline {
     text-decoration: underline;
 }
+
