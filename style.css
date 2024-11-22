@@ -357,12 +357,13 @@ body.dark .home .text{
         object-fit: cover; /* Cubre completamente el contenedor sin deformarse */
     }
 
-    .footer-text {
-        position: fixed; /* Asegura que el pie de página esté visible en móviles */
-        bottom: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* Fondo más visible */
-        font-size: 12px; /* Ajusta el tamaño del texto */
+    footer.footer-text {
+        position: fixed; /* Sigue fijo en móviles */
+        bottom: 0; /* Mantiene su posición en la parte inferior */
+        left: 0; /* Asegura que no quede desplazado */
+        right: 0; /* Asegura que no quede desplazado */
+        background-color: #f8f8f8; /* Mantén el diseño consistente */
+        z-index: 1000; /* Sigue encima de la barra lateral */
     }
 }
 
