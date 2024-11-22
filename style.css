@@ -347,24 +347,23 @@ body.dark .home .text{
 /* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        width: 100%; /* Asegura que ocupe todo el ancho del teléfono */
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        width: 100%; /* Asegura que ocupe todo el ancho del dispositivo */
+        height: 100vh; /* Ocupa toda la altura del teléfono */
         display: flex;
-        justify-content: flex-end; /* Mueve la imagen hacia la derecha */
-        align-items: center;
-        overflow: hidden;
+        justify-content: flex-end; /* Alinea el contenido hacia la derecha */
+        align-items: center; /* Centra verticalmente */
+        overflow: hidden; /* Evita desbordamiento */
         margin-left: 0; /* Sin margen para móviles */
+        position: relative;
     }
 
     .banner-imagen {
-        width: auto; /* Ajusta la imagen a su tamaño natural horizontal */
-        height: 100%; /* Asegura que cubra toda la altura de la pantalla */
-        object-fit: cover; /* Mantiene proporción sin deformarse */
-        position: relative; /* Normaliza la posición en el contenedor */
-        right: 0; /* Alinea la imagen a la derecha */
+        width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+        height: 100%; /* Asegura que la imagen cubra la altura del contenedor */
+        object-fit: contain; /* Asegura que la imagen se mantenga completa sin recortarse */
+        position: relative; /* Permite que se ajuste dentro del contenedor */
     }
 }
-
 
 
 #centrado {
