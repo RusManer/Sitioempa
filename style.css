@@ -310,13 +310,12 @@ body.dark .home .text{
 
 /* Ajustes generales para el banner */
 #banner-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    overflow: hidden;
-    position: relative;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: auto; /* Ajusta automáticamente la altura */
+    overflow: hidden; /* Evita que los elementos desborden */
+    display: flex; /* Asegura la alineación de los elementos internos */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center; /* Centra las imágenes verticalmente */
 }
 
 .banner-imagen {
@@ -348,15 +347,14 @@ body.dark .home .text{
     z-index: 10; /* Asegura que esté encima de las imágenes */
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #banner-contenedor {
-        height: calc(100vh - 50px); /* Ajusta el banner dejando espacio para el pie de página */
+        height: 100vh; /* El banner ocupa toda la altura de la ventana */
     }
-
     .banner-imagen {
-        width: auto; /* Ajusta el ancho proporcionalmente */
-        height: 100%; /* Llena el alto completo */
-        object-fit: contain; /* Muestra la imagen completa sin cortes */
+        width: 100vw; /* La imagen ocupa todo el ancho de la ventana */
+        height: 100vh; /* La imagen ocupa toda la altura de la ventana */
+        object-fit: cover; /* Cubre completamente el contenedor sin deformarse */
     }
 
     .footer-text {
