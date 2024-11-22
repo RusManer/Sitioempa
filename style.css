@@ -352,7 +352,7 @@ body.dark .home .text{
         height: 100vh; /* El banner ocupa toda la altura de la ventana */
     }
     .banner-imagen {
-        width: 100vw; /* La imagen ocupa todo el ancho de la ventana */
+        width: 90vw; /* La imagen ocupa todo el ancho de la ventana */
         height: 90vh; /* La imagen ocupa toda la altura de la ventana */
         object-fit: cover; /* Cubre completamente el contenedor sin deformarse */
     }
