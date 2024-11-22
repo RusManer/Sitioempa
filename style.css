@@ -358,7 +358,7 @@ body.dark .home .text{
     }
 
     .banner-imagen {
-        width: auto; /* La imagen mantiene su proporción natural */
+        width: 80; /* La imagen mantiene su proporción natural */
         height: 100%; /* La imagen ocupa toda la altura del contenedor */
         object-fit: contain; /* Asegura que se vea completa sin recorte */
         position: absolute; /* Se posiciona dentro del contenedor */
