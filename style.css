@@ -344,19 +344,27 @@ body.dark .home .text{
     transition: opacity 2s ease-in-out;
 }
 
+/* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        margin-left: 0; /* Elimina el margen en móviles */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        height: 50vh; /* Ajusta la altura del banner */
+        width: 100%; /* Asegura que ocupe todo el ancho del teléfono */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        display: flex;
+        justify-content: flex-end; /* Mueve la imagen hacia la derecha */
+        align-items: center;
+        overflow: hidden;
+        margin-left: 0; /* Sin margen para móviles */
     }
 
-    footer {
-        margin-left: 0; /* Elimina el margen en móviles */
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        font-size: 12px; /* Ajusta el texto para pantallas pequeñas */
+    .banner-imagen {
+        width: auto; /* Ajusta la imagen a su tamaño natural horizontal */
+        height: 100%; /* Asegura que cubra toda la altura de la pantalla */
+        object-fit: cover; /* Mantiene proporción sin deformarse */
+        position: relative; /* Normaliza la posición en el contenedor */
+        right: 0; /* Alinea la imagen a la derecha */
     }
 }
+
 
 
 #centrado {
