@@ -333,12 +333,16 @@ body.dark .home .text{
     position: relative;
 }
 @media (max-width: 768px) {
+    body {
+        overflow: hidden; /* Evita el desplazamiento vertical */
+    }
+
     #banner-contenedor {
-        position: fixed; /* El banner se mantiene fijo */
-        top: 0; /* Inicia desde la parte superior */
-        left: 88px; /* Comienza justo después del menú lateral */
-        width: calc(100% - 88px); /* Ocupa todo el ancho restante */
-        height: 100vh; /* Ocupa toda la altura visible */
+        position: fixed; /* Fija el contenedor del banner */
+        top: 0; /* Comienza desde la parte superior */
+        left: 88px; /* Comienza después de la barra lateral */
+        width: calc(100% - 88px); /* Usa el ancho restante */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
         align-items: center; /* Centra la imagen verticalmente */
@@ -346,24 +350,26 @@ body.dark .home .text{
     }
 
     .banner-imagen {
-        width: 100%; /* Cubre todo el ancho del contenedor */
-        height: 100%; /* Cubre todo el alto del contenedor */
-        object-fit: cover; /* La imagen llena todo el contenedor sin distorsión */
+        width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+        height: 100%; /* La imagen ocupa todo el alto del contenedor */
+        object-fit: cover; /* Llena el contenedor sin distorsión */
+        z-index: 1; /* Coloca la imagen detrás del pie de página */
     }
 
     footer {
-        position: absolute; /* El pie de página se superpone sobre la imagen */
+        position: fixed; /* Fija el pie de página encima de la imagen */
         bottom: 0; /* Se ubica en la parte inferior de la pantalla */
-        left: 0; /* Abarca desde el borde izquierdo */
-        width: 100%; /* Cubre todo el ancho disponible */
-        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para visibilidad */
+        left: 88px; /* Alineado con el inicio del contenedor del banner */
+        width: calc(100% - 88px); /* Cubre el espacio restante */
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
         color: #ffffff; /* Texto blanco para contraste */
-        text-align: center; /* Texto centrado */
-        padding: 10px; /* Espaciado interno */
-        font-size: 12px; /* Tamaño de fuente adecuado */
-        z-index: 10; /* Asegura que esté encima de la imagen */
+        text-align: center;
+        padding: 10px;
+        font-size: 12px; /* Tamaño adecuado para móviles */
+        z-index: 10; /* Asegura que el pie de página esté por encima de la imagen */
     }
 }
+
 
 #centrado {
     display: flex;
