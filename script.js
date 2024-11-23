@@ -14,7 +14,7 @@ const bannerImages = {
         dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']
     },
     mobile: { // Imágenes para móviles
-        light: ['img/mobil1.png', 'img/mobil2.png', 'img/mobil3.png'],
+        light: ['img/mobil1.png', 'img/mobil2.webp', 'img/mobil3.png'],
         dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobile3.webp']
     }
 };
