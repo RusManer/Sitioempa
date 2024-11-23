@@ -333,28 +333,21 @@ body.dark .home .text{
     position: relative;
 }
 
-/* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
-    #banner-contenedor {
-        width: 100%; /* Asegura que ocupe todo el ancho */
-        height: auto; /* Ajusta al tamaño natural de la imagen */
-        margin-left: 0; /* Elimina el margen de la barra lateral */
-        justify-content: center; /* Centra el contenido horizontalmente */
-        align-items: flex-start; /* Alinea desde la parte superior */
+      .banner-imagen {
+        width: auto; /* Ajusta la imagen a su tamaño natural horizontal */
+        height: 100%; /* Asegura que cubra toda la altura de la pantalla */
+        object-fit: cover; /* Mantiene proporción sin deformarse */
+        position: relative; /* Normaliza la posición en el contenedor */
+        right: 0; /* Alinea la imagen a la derecha */
     }
-
-    .banner-imagen {
-        width: 100%; /* La imagen ocupa todo el ancho */
-        height: auto; /* Conserva su altura natural */
-        object-fit: contain; /* Muestra la imagen completa sin recortes */
-    }
-
-    footer {
-        width: 100%; /* El pie de página ocupa todo el ancho */
+ footer {
+        width: 100%; /* Ocupa todo el ancho del teléfono */
         margin-left: 0; /* Elimina el margen izquierdo */
         font-size: 12px; /* Ajusta el tamaño del texto */
     }
 }
+
 
 #centrado {
     display: flex;
