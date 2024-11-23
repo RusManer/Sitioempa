@@ -334,14 +334,14 @@ body.dark .home .text{
 }
 @media (max-width: 768px) {
     body {
-        overflow: hidden; /* Evita el scroll vertical */
+        overflow: hidden; /* Evita el desplazamiento vertical */
     }
 
     #banner-contenedor {
-        position: fixed; /* Fija el banner */
+        position: fixed; /* Mantén la imagen fija */
         top: 0;
-        left: 88px; /* Espacio después de la barra lateral */
-        width: calc(100% - 88px); /* Ocupa el espacio restante */
+        left: 88px; /* Espacio para la barra lateral */
+        width: calc(100% - 88px); /* Usa el ancho restante después de la barra lateral */
         height: 100vh; /* Ocupa toda la altura de la pantalla */
         display: flex;
         justify-content: center;
@@ -350,23 +350,23 @@ body.dark .home .text{
     }
 
     .banner-imagen {
-        width: 100%; /* Ocupa todo el ancho */
-        height: 100%; /* Ocupa todo el alto */
-        object-fit: cover; /* Llena el espacio sin deformarse */
+        width: 100%; /* Cubre todo el ancho */
+        height: 100%; /* Cubre toda la altura */
+        object-fit: cover; /* Escala la imagen sin distorsión */
         z-index: 1; /* Coloca la imagen detrás del pie de página */
     }
 
     footer {
-        position: fixed; /* Fija el pie de página al final de la pantalla */
-        bottom: 0; /* Se ubica en la parte inferior */
-        left: 88px; /* Alineado con el banner después de la barra lateral */
+        position: fixed; /* Fija el pie de página */
+        bottom: 0; /* Siempre visible en la parte inferior */
+        left: 88px; /* Alineado con el inicio del banner */
         width: calc(100% - 88px); /* Usa el espacio restante del ancho */
         background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
         color: #ffffff; /* Texto blanco */
-        text-align: center; /* Texto centrado */
+        text-align: center;
         padding: 10px;
-        font-size: 12px;
-        z-index: 10; /* Asegura que esté encima de la imagen */
+        font-size: 12px; /* Tamaño adecuado para móviles */
+        z-index: 10; /* Siempre encima de la imagen */
     }
 }
 
