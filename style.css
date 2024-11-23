@@ -337,7 +337,7 @@ body.dark .home .text{
         position: fixed; /* Fija el contenedor en la pantalla */
         top: 0; /* Comienza desde la parte superior */
         left: 88px; /* Ajusta el inicio después de la barra lateral cerrada */
-        width: calc(70% - 88px); /* Ocupa todo el ancho restante después del menú */
+        width: calc(90% - 88px); /* Ocupa todo el ancho restante después del menú */
         height: 100vh; /* Ocupa todo el alto visible */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
@@ -347,7 +347,7 @@ body.dark .home .text{
     }
 
     .banner-imagen {
-        width: 700%; /* La imagen ocupa todo el ancho disponible */
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
         height: 100%; /* La imagen ocupa todo el alto disponible */
         object-fit: cover; /* Asegura que la imagen se vea completa sin espacios en blanco */
     }
