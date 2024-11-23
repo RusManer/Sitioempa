@@ -337,7 +337,7 @@ body.dark .home .text{
         position: fixed; /* Fija el contenedor en la pantalla */
         top: 0; /* Comienza desde la parte superior */
         left: 88px; /* Ajusta el inicio después de la barra lateral cerrada */
-        width: calc(90% - 88px); /* Ocupa todo el ancho restante después del menú */
+        width: calc(100% - 88px); /* Ocupa todo el ancho restante después del menú */
         height: 100vh; /* Ocupa todo el alto visible */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
