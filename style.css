@@ -333,9 +333,6 @@ body.dark .home .text{
     position: relative;
 }
 @media (max-width: 768px) {
-    body {
-        overflow: hidden; /* Evita el desplazamiento vertical */
-    }
 
     #banner-contenedor {
         position: fixed; /* Mantén la imagen fija */
