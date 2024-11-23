@@ -333,8 +333,8 @@ body.dark .home .text{
     position: relative;
 }
 .banner-imagen {
-    width: 100%;
-    height: auto;
+    width: 500%;
+    height: 100%;
     max-height: 100%;
     object-fit: cover; /* Asegura que la imagen se adapte sin deformarse */
     position: absolute;
@@ -347,7 +347,7 @@ body.dark .home .text{
 /* Ajustes para dispositivos móviles */
 @media (max-width: 512px) {
     #banner-contenedor {
-        width: 500%; /* Asegura que ocupe todo el ancho del dispositivo */
+        width: 50%; /* Asegura que ocupe todo el ancho del dispositivo */
         height: 100vh; /* Ocupa toda la altura de la pantalla */
         display: flex;
         justify-content: flex-end; /* Alinea la imagen hacia la derecha */
