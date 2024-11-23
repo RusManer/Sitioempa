@@ -1,67 +1,51 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
-:root{
+:root {
     --body-color: #eff0f1;
     --sidebar-color: #FFF;
     --primary-color: #232424;
     --primary-color-light: #f0f0f1;
     --toggle-color: #b4adad;
     --text-color: #444343;
-
-    --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
-    --tran-04: all 0.3s ease;
-    --tran-05: all 0.3s ease;
+    --tran-05: all 0.5s ease;
 }
 
-body{
-    min-height: 100vh;
+body {
     background-color: var(--body-color);
-    transition: var(--tran-05);
-cursor: url('img/emp1.png'), auto; /* Cambia 'empanada.png' por la ruta real de tu imagen */
-        }
-
-a {
-            /* Cambia el puntero a una imagen de empanada cuando está sobre un enlace */
-            cursor: url('img/super.png'), pointer; /* Personaliza con la imagen que desees */
-        }
+    min-height: 100vh;
+    transition: var(--tran-03);
 }
 
-::selection{
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-body.dark{
-    --body-color: #18191a;
-    --sidebar-color: #242526;
-    --primary-color: #3a3b3c;
-    --primary-color-light: #3a3b3c;
-    --toggle-color: #fff;
-    --text-color: #ccc;
-}
-
- .sidebar{
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
     width: 250px;
-    padding: 10px 14px;
-    background: var(--sidebar-color);
+    height: 100%;
+    background-color: var(--sidebar-color);
+    z-index: 100;
     transition: var(--tran-03);
-    z-index: 100;  
 }
-.sidebar.close{
+
+.sidebar.close {
     width: 88px;
 }
 
-.sidebar li{
+.sidebar .menu-bar {
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.sidebar li {
     height: 50px;
     list-style: none;
     display: flex;
@@ -69,80 +53,44 @@ body.dark{
     margin-top: 10px;
 }
 
-.sidebar header .image,
-.sidebar .icon{
+.sidebar .icon {
     min-width: 60px;
-    border-radius: 6px;
-}
-
-.sidebar .icon{
-    min-width: 60px;
-    border-radius: 6px;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
 }
 
-.sidebar .text,
-.sidebar .icon{
-    color: var(--text-color);
-    transition: var(--tran-03);
-}
-
-.sidebar .text{
+.sidebar .text {
     font-size: 17px;
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
+    transition: var(--tran-03);
 }
-.sidebar.close .text{
+
+.sidebar.close .text {
     opacity: 0;
 }
 
-.sidebar header{
+.sidebar header {
     position: relative;
-}
-
-.sidebar header .image-text{
     display: flex;
     align-items: center;
 }
-.sidebar header .logo-text{
-    display: flex;
-    flex-direction: column;
-}
-header .image-text .name {
-    margin-top: 2px;
-    font-size: 18px;
-    font-weight: 600;
-}
 
-header .image-text .profession{
-    font-size: 16px;
-    margin-top: -2px;
-    display: block;
-}
-
-.sidebar header .image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sidebar header .image img{
+.sidebar header .image img {
     width: 40px;
     border-radius: 6px;
 }
 
-.sidebar header .toggle{
+.sidebar header .toggle {
     position: absolute;
     top: 50%;
     right: -25px;
     transform: translateY(-50%) rotate(180deg);
-    height: 25px;
     width: 25px;
+    height: 25px;
     background-color: var(--primary-color);
     color: var(--sidebar-color);
     border-radius: 50%;
@@ -154,218 +102,103 @@ header .image-text .profession{
     transition: var(--tran-05);
 }
 
-body.dark .sidebar header .toggle{
+body.dark .sidebar header .toggle {
     color: var(--text-color);
 }
 
-.sidebar.close .toggle{
+.sidebar.close .toggle {
     transform: translateY(-50%) rotate(0deg);
 }
 
-.sidebar .menu{
-    margin-top: 40px;
-}
-
-.sidebar li.search-box{
-    border-radius: 6px;
-    background-color: var(--primary-color-light);
-    cursor: pointer;
-    transition: var(--tran-05);
-}
-
-.sidebar li.search-box input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    background-color: var(--primary-color-light);
-    color: var(--text-color);
-    border-radius: 6px;
-    font-size: 17px;
-    font-weight: 500;
-    transition: var(--tran-05);
-}
-.sidebar li a{
+.sidebar li a {
     list-style: none;
     height: 100%;
     background-color: transparent;
     display: flex;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    border-radius: 6px;
     text-decoration: none;
     transition: var(--tran-03);
 }
 
-.sidebar li a:hover{
+.sidebar li a:hover {
     background-color: var(--primary-color);
 }
-.sidebar li a:hover .icon,
-.sidebar li a:hover .text{
-    color: var(--sidebar-color);
-}
+
 body.dark .sidebar li a:hover .icon,
-body.dark .sidebar li a:hover .text{
+body.dark .sidebar li a:hover .text {
     color: var(--text-color);
 }
 
-.sidebar .menu-bar{
-    height: calc(100% - 55px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: scroll;
-}
-.menu-bar::-webkit-scrollbar{
-    display: none;
-}
-.sidebar .menu-bar .mode{
-    border-radius: 6px;
-    background-color: var(--primary-color-light);
-    position: relative;
-    transition: var(--tran-05);
-}
-
-.menu-bar .mode .sun-moon{
-    height: 50px;
-    width: 60px;
-}
-
-.mode .sun-moon i{
+.home {
     position: absolute;
-}
-.mode .sun-moon i.sun{
-    opacity: 0;
-}
-body.dark .mode .sun-moon i.sun{
-    opacity: 1;
-}
-body.dark .mode .sun-moon i.moon{
-    opacity: 0;
-}
-
-.menu-bar .bottom-content .toggle-switch{
-    position: absolute;
-    right: 0;
-    height: 100%;
-    min-width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.toggle-switch .switch{
-    position: relative;
-    height: 22px;
-    width: 40px;
-    border-radius: 25px;
-    background-color: var(--toggle-color);
-    transition: var(--tran-05);
-}
-
-.switch::before{
-    content: '';
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    background-color: var(--sidebar-color);
-    transition: var(--tran-04);
-}
-
-body.dark .switch::before{
-    left: 20px;
-}
-
-.home{
-    position: absolute;
-    top: 0;
     top: 0;
     left: 250px;
     height: 100vh;
-    width: calc(100% - 150px);
+    width: calc(100% - 250px);
     background-color: var(--body-color);
-    transition: var(--tran-05);
-}
-.home .text{
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 12px 60px;
+    transition: var(--tran-03);
 }
 
-.sidebar.close ~ .home{
-    left: 78px;
-    height: 100vh;
-    width: calc(100% - 78px);
+.sidebar.close ~ .home {
+    left: 88px;
+    width: calc(100% - 88px);
 }
-body.dark .home .text{
+
+body.dark .home .text {
     color: var(--text-color);
 }
-
-
 
 .footer-text {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
-    color: #ffffff; /* Color de texto blanco */
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
     padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    z-index: 10; /* Asegura que esté encima de las imágenes */
+    font-size: 14px;
+    z-index: 10;
 }
 
 #banner-contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     width: 100vw;
-    height: 100vh; /* Altura completa de la pantalla */
+    height: 100vh;
+    overflow: hidden;
     position: relative;
 }
+
+.banner-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 @media (max-width: 768px) {
     #banner-contenedor {
-        position: fixed; /* Fija el banner */
-        top: 0;
-        left: 88px; /* Espacio para la barra lateral */
-        width: calc(100% - 88px); /* Usa el ancho restante después de la barra lateral */
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
-        display: flex;
         justify-content: center;
         align-items: center;
-        overflow: hidden; /* Evita desbordamientos */
+        height: calc(100vh - 50px); /* Ajuste para móviles */
     }
 
     .banner-imagen {
-        width: 100%; /* Cubre todo el ancho */
-        height: 100%; /* Cubre toda la altura */
-        object-fit: cover; /* Escala la imagen sin distorsión */
-        z-index: 1; /* Coloca la imagen detrás del pie de página */
+        object-fit: contain; /* Asegura que la imagen esté completamente visible */
     }
 
-    footer {
-        position: fixed; /* Fija el pie de página */
-        bottom: 0; /* Siempre visible en la parte inferior */
-        left: 88px; /* Alineado con el inicio del banner */
-        width: calc(100% - 88px); /* Usa el espacio restante del ancho */
-        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-        color: #ffffff; /* Texto blanco */
-        text-align: center;
-        padding: 10px;
-        font-size: 12px; /* Tamaño adecuado para móviles */
-        z-index: 10; /* Siempre encima de la imagen */
+    .footer-text {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        font-size: 12px;
+        color: white;
     }
 }
-
 
 #centrado {
     display: flex;
@@ -376,46 +209,6 @@ body.dark .home .text{
     height: 100vh;
     position: relative;
 }
-
-.slides {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-
-
-.banner-imagen {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 2s ease-in-out;
-}
-
-
-
-
-.banner-imagen.active {
-    opacity: 1;
-}
-
- #comida1{
-        float: right;
-        width: 25%;
-        padding: 1px;
-
- }
- #comida2{
-        float: left;
-        width: 20%;
-        padding: 1px;
- }
-
 
 .underline {
     text-decoration: underline;
