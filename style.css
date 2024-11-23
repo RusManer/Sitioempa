@@ -334,14 +334,24 @@ body.dark .home .text{
 }
 
 @media (max-width: 512px) {
-
-
-    .banner-imagen {
-        width: 50; /* Mantiene la proporción de la imagen */
-        height: 100%; /* Cubre toda la altura del contenedor */
-        object-fit: contain; /* Muestra la imagen completa sin recorte */
+    #banner-contenedor {
+        width: 100%; /* Ocupa todo el ancho del dispositivo */
+        height: auto; /* El contenedor se ajusta al tamaño natural de la imagen */
+        display: flex;
+        justify-content: center; /* Centra la imagen horizontalmente */
+        align-items: flex-start; /* Comienza desde la parte superior */
+        overflow: hidden; /* Evita desbordamiento */
+        margin-left: 0; /* Sin margen izquierdo en móviles */
     }
 
+    .banner-imagen {
+        width: auto; /* Mantiene su tamaño original en ancho */
+        height: auto; /* Conserva el tamaño natural de la imagen */
+        max-width: 100%; /* Evita que sea más ancha que el contenedor */
+        object-fit: unset; /* Asegura que no se escale ni recorte */
+        position: relative; /* Normaliza la posición */
+    }
+}
     footer {
         width: 100%; /* Ocupa todo el ancho del dispositivo */
         margin-left: 0; /* Elimina el margen izquierdo */
