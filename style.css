@@ -334,10 +334,10 @@ body.dark .home .text{
 }
 @media (max-width: 768px) {
     #banner-contenedor {
-        position: fixed; /* Mantiene el contenedor fijo en la pantalla */
+        position: fixed; /* Fija el contenedor en la pantalla */
         top: 0; /* Comienza desde la parte superior */
-        left: 88px; /* Deja espacio para la barra lateral */
-        width: calc(100% - 88px); /* Usa todo el ancho restante después de la barra lateral */
+        left: 88px; /* Ajusta el inicio después de la barra lateral */
+        width: calc(100% - 88px); /* Usa todo el ancho restante después del menú */
         height: calc(100vh - 50px); /* Usa todo el alto restante, excluyendo el pie de página */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
@@ -358,15 +358,16 @@ body.dark .home .text{
         position: fixed; /* El pie de página permanece fijo */
         bottom: 0; /* Alineado al final de la pantalla */
         left: 88px; /* Alineado con la barra lateral */
-        width: calc(100% - 88px); /* Abarca el espacio restante */
+        width: calc(100% - 88px); /* Cubre el espacio restante */
         background-color: #232323;
         color: #ffffff;
         text-align: center;
         padding: 10px;
         font-size: 12px;
-        z-index: 10; /* Asegura que esté visible sobre el banner */
+        z-index: 10; /* Se asegura de estar por encima del banner */
     }
 }
+
 
 #centrado {
     display: flex;
