@@ -14,7 +14,7 @@ const bannerImages = {
         dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp']
     },
     mobile: { // Imágenes para móviles
-        light: ['img/mobil1.webp', 'img/mobil2.webp, ''img/mobil3.webp'],
+        light: ['img/mobil1.webp', 'img/mobil2.webp', 'img/mobil3.webp'],
         dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobile3.webp']
     }
 };
@@ -132,3 +132,4 @@ if ('serviceWorker' in navigator) {
 // Inicializa el banner y el carrusel al cargar la página
 loadBannerImages(); // Carga las imágenes iniciales del banner
 startCarousel();    // Inicia el carrusel del banner
+
