@@ -333,23 +333,11 @@ body.dark .home .text{
     position: relative;
 }
 
-@media (max-width: 768px) {
-    html, body {
-        overflow: hidden; /* Elimina el desplazamiento vertical */
-        height: 100%; /* Asegura que ocupe toda la pantalla */
-    }
+@media (max-width: 512px) {
 
-    #banner-contenedor {
-        width: 100%; /* Ocupa todo el ancho */
-        height: 100vh; /* Asegura que ocupe la altura del teléfono */
-        display: flex;
-        justify-content: flex-end; /* Mueve la imagen hacia la derecha */
-        align-items: center; /* Centra la imagen verticalmente */
-        margin-left: 0; /* Elimina el margen izquierdo */
-    }
 
     .banner-imagen {
-        width: auto; /* Mantiene la proporción de la imagen */
+        width: 50; /* Mantiene la proporción de la imagen */
         height: 100%; /* Cubre toda la altura del contenedor */
         object-fit: contain; /* Muestra la imagen completa sin recorte */
     }
