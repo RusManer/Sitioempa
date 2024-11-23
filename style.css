@@ -345,9 +345,9 @@ body.dark .home .text{
 }
 
 /* Ajustes para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 512px) {
     #banner-contenedor {
-        width: 100%; /* Asegura que ocupe todo el ancho del dispositivo */
+        width: 500%; /* Asegura que ocupe todo el ancho del dispositivo */
         height: 100vh; /* Ocupa toda la altura de la pantalla */
         display: flex;
         justify-content: flex-end; /* Alinea la imagen hacia la derecha */
@@ -358,7 +358,7 @@ body.dark .home .text{
     }
 
     .banner-imagen {
-        width: 80; /* La imagen mantiene su proporción natural */
+        width: 50; /* La imagen mantiene su proporción natural */
         height: 100%; /* La imagen ocupa toda la altura del contenedor */
         object-fit: contain; /* Asegura que se vea completa sin recorte */
         position: absolute; /* Se posiciona dentro del contenedor */
