@@ -336,39 +336,37 @@ body.dark .home .text{
 /* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        position: absolute; /* Posiciona el contenedor dentro del flujo normal */
-        top: 0; /* Comienza desde la parte superior de la pantalla */
-        left: 250px; /* Comienza después de la barra lateral */
-        width: calc(100% - 250px); /* Ajusta el ancho al espacio restante */
-        height: calc(100vh - 50px); /* Ajusta la altura visible sin solapar el pie de página */
+        position: relative; /* Mantiene el banner dentro del flujo normal */
+        margin-left: 250px; /* Respeta la barra lateral */
+        width: calc(100% - 250px); /* Usa el ancho restante disponible */
+        height: calc(100vh - 50px); /* Ajusta la altura excluyendo el pie de página */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
         align-items: center; /* Centra la imagen verticalmente */
+        background-color: var(--body-color); /* Fondo limpio */
         overflow: hidden; /* Evita desbordamientos */
-        background-color: var(--body-color); /* Fondo limpio detrás de la imagen */
     }
 
     .banner-imagen {
-        max-width: 100%; /* Asegura que la imagen no exceda el ancho disponible */
-        max-height: 100%; /* Asegura que la imagen no exceda el alto disponible */
-        width: auto; /* Ajusta automáticamente el ancho en proporción */
-        height: auto; /* Ajusta automáticamente la altura en proporción */
-        object-fit: contain; /* Asegura que la imagen se vea completa sin recorte */
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
+        height: auto; /* Conserva la proporción de la imagen */
+        max-height: 100%; /* Limita la altura para que no desborde el contenedor */
+        object-fit: contain; /* Asegura que la imagen completa sea visible */
     }
 
     footer {
-        position: fixed; /* Mantiene el pie de página fijo al final */
-        bottom: 0; /* Al final de la pantalla */
-        left: 250px; /* Comienza después de la barra lateral */
-        width: calc(100% - 250px); /* Ajusta al espacio restante */
+        position: absolute; /* El pie de página se coloca al final del contenedor */
+        bottom: 0; /* Siempre visible en la parte inferior */
+        margin-left: 250px; /* Respeta la barra lateral */
+        width: calc(100% - 250px); /* Usa el espacio disponible */
         background-color: #232323;
         color: #ffffff;
         text-align: center;
         padding: 10px;
         font-size: 12px;
-        z-index: 10; /* Asegura que esté por encima del banner */
     }
 }
+
 
 #centrado {
     display: flex;
