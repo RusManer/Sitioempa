@@ -332,33 +332,39 @@ body.dark .home .text{
     height: 100vh; /* Altura completa de la pantalla */
     position: relative;
 }
-/* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
     #banner-contenedor {
-        position: fixed; /* Fija el banner en la pantalla */
-        top: 0; /* Inicia desde la parte superior */
-        left: 0; /* Inicia desde el borde izquierdo */
-        width: 100%; /* Cubre todo el ancho del dispositivo */
-        height: 100vh; /* Cubre toda la altura visible de la pantalla */
+        position: fixed; /* Fija el contenedor en la pantalla */
+        top: 0; /* Comienza desde la parte superior */
+        left: 88px; /* Ajusta el inicio después de la barra lateral cerrada */
+        width: calc(100% - 88px); /* Ocupa todo el ancho restante después del menú */
+        height: 100vh; /* Ocupa todo el alto visible */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
         align-items: center; /* Centra la imagen verticalmente */
-        background-color: var(--body-color); /* Fondo limpio detrás de la imagen */
-        overflow: hidden; /* Evita cualquier desbordamiento */
+        background-color: var(--body-color); /* Fondo limpio */
+        overflow: hidden; /* Evita desbordamientos */
     }
 
     .banner-imagen {
-        width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-        height: 100%; /* La imagen ocupa todo el alto del contenedor */
-        object-fit: cover; /* Asegura que la imagen cubra todo el espacio visible */
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
+        height: 100%; /* La imagen ocupa todo el alto disponible */
+        object-fit: cover; /* Asegura que la imagen se vea completa sin espacios en blanco */
     }
 
     footer {
-        display: none; /* Opcional: Oculta el pie de página si no debe superponerse */
+        position: fixed; /* Fija el pie de página */
+        bottom: 0; /* Aparece en la parte inferior */
+        left: 88px; /* Se ajusta al ancho restante después del menú */
+        width: calc(100% - 88px); /* Cubre el espacio restante */
+        background-color: #232323;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        z-index: 10; /* Se asegura de estar por encima del banner */
     }
 }
-
-
 #centrado {
     display: flex;
     justify-content: center;
