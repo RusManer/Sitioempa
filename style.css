@@ -334,39 +334,36 @@ body.dark .home .text{
 }
 @media (max-width: 768px) {
     #banner-contenedor {
-        position: fixed; /* Fija el contenedor en la pantalla */
-        top: 0; /* Comienza desde la parte superior */
-        left: 88px; /* Deja espacio para la barra lateral */
-        width: calc(100% - 88px); /* Usa todo el ancho restante después del menú */
-        height: 100vh; /* Ocupa toda la altura visible de la pantalla */
+        position: fixed; /* El banner se mantiene fijo */
+        top: 0; /* Inicia desde la parte superior */
+        left: 88px; /* Comienza justo después del menú lateral */
+        width: calc(100% - 88px); /* Ocupa todo el ancho restante */
+        height: 100vh; /* Ocupa toda la altura visible */
         display: flex;
         justify-content: center; /* Centra la imagen horizontalmente */
         align-items: center; /* Centra la imagen verticalmente */
-        background-color: var(--body-color); /* Fondo limpio */
         overflow: hidden; /* Evita desbordamientos */
     }
 
     .banner-imagen {
         width: 100%; /* Cubre todo el ancho del contenedor */
         height: 100%; /* Cubre todo el alto del contenedor */
-        object-fit: cover; /* La imagen cubre el espacio completo sin deformarse */
-        z-index: 1; /* La imagen queda detrás del pie de página */
+        object-fit: cover; /* La imagen llena todo el contenedor sin distorsión */
     }
 
     footer {
-        position: fixed; /* Fija el pie de página encima de la imagen */
-        bottom: 0; /* Ubicado al final de la pantalla */
-        left: 88px; /* Comienza después de la barra lateral */
-        width: calc(100% - 88px); /* Ocupa el espacio restante */
-        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para resaltar sobre la imagen */
-        color: #ffffff; /* Color del texto en blanco */
-        text-align: center;
-        padding: 10px;
-        font-size: 12px;
-        z-index: 10; /* Asegura que esté encima del banner */
+        position: absolute; /* El pie de página se superpone sobre la imagen */
+        bottom: 0; /* Se ubica en la parte inferior de la pantalla */
+        left: 0; /* Abarca desde el borde izquierdo */
+        width: 100%; /* Cubre todo el ancho disponible */
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para visibilidad */
+        color: #ffffff; /* Texto blanco para contraste */
+        text-align: center; /* Texto centrado */
+        padding: 10px; /* Espaciado interno */
+        font-size: 12px; /* Tamaño de fuente adecuado */
+        z-index: 10; /* Asegura que esté encima de la imagen */
     }
 }
-
 
 #centrado {
     display: flex;
