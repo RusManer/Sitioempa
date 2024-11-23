@@ -337,13 +337,11 @@ body.dark .home .text{
       .banner-imagen {
         width: auto; /* Ajusta la imagen a su tamaño natural horizontal */
         height: 100%; /* Asegura que cubra toda la altura de la pantalla */
-        object-fit: cover; /* Mantiene proporción sin deformarse */
-        position: relative; /* Normaliza la posición en el contenedor */
-        right: 0; /* Alinea la imagen a la derecha */
+    
     }
  footer {
         width: 100%; /* Ocupa todo el ancho del teléfono */
-        margin-left: 0; /* Elimina el margen izquierdo */
+    
         font-size: 12px; /* Ajusta el tamaño del texto */
     }
 }
